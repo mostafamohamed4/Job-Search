@@ -6,13 +6,15 @@ import { User } from "../../../database/models/User.model.js"
 import { asyncHandler } from "../../../middleware/asyncHandler.js";
 import { VerifyToken } from "../../../middleware/VerifyToken.js";
 import { CheckOwnership } from "../../../middleware/OwnerAccount.js";
+import { validate } from "../../../middleware/validate.js";
+import { signupValidationSchema } from "./User.validation.js";
 
 export const UserRouter = Router()
-UserRouter.post('/AddUser', checkEmail, asyncHandler(AddUser))
+UserRouter.post('/AddUser',validate(signupValidationSchema) ,checkEmail, asyncHandler(AddUser))
 UserRouter.post('/LogIn', asyncHandler(LogIn))
 UserRouter.put('/:id', VerifyToken, CheckOwnership, checkEmail, asyncHandler(UpdateUser))
 UserRouter.delete('/:id', VerifyToken, CheckOwnership, asyncHandler(DeleteUser))
-UserRouter.get('/GetUser', VerifyToken,CheckOwnership ,asyncHandler(GetUser)) 
+UserRouter.get('/GetUser', VerifyToken, CheckOwnership, asyncHandler(GetUser))
 UserRouter.get('/getProfileData/:id', asyncHandler(getProfileData))
 UserRouter.put('/UpdatePassword/:id', asyncHandler(UpdatePassword))
 UserRouter.post('/requestPasswordReset', asyncHandler(requestPasswordReset))

@@ -502,7 +502,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\"jobTitle\":\"nodeJS\",\r\n\"jobLocation\":\"onsite\",\r\n\"workingTime\":\"part-time\",\r\n\"seniorityLevel\":\"Junior\",\r\n\"jobDescription\":\"test\",\r\n\"technicalSkills\":\"nodejs\",\r\n\"softSkills\":\"team\",\r\n\"addedBy\":\"669540e75925371f3e53f077\"\r\n}",
+							"raw": "{\r\n\"jobTitle\":\"php\",\r\n\"jobLocation\":\"onsite\",\r\n\"workingTime\":\"part-time\",\r\n\"seniorityLevel\":\"Junior\",\r\n\"jobDescription\":\"test\",\r\n\"technicalSkills\":[\"nodejs\"],\r\n\"softSkills\":\"team\",\r\n\"addedBy\":\"669540e75925371f3e53f077\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -677,40 +677,13 @@
 							}
 						],
 						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "userResume",
-									"type": "file",
-									"src": "/C:/Users/mostafa.abdalhalim/Downloads/assignment-9 (1).pdf"
-								},
-								{
-									"key": "jobId",
-									"value": "6695850b7635b4aa50925f27",
-									"type": "text"
-								},
-								{
-									"key": "userId",
-									"value": "66955b0a49140ad2d9c85841",
-									"type": "text"
-								},
-								{
-									"key": "userTechSkills",
-									"value": "MongoDB",
-									"type": "text"
-								},
-								{
-									"key": "userSoftSkills",
-									"value": "teamworker",
-									"type": "text"
-								},
-								{
-									"key": "",
-									"value": "",
-									"type": "text",
-									"disabled": true
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
 								}
-							]
+							}
 						},
 						"url": {
 							"raw": "http://localhost:3000/Job/ApplyToJob",

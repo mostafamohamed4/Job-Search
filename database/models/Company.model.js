@@ -15,6 +15,7 @@ const CompanySchema = new Schema({
     industry: {
         type: String,
         trim: true
+        
     },
     address: {
         type: String,

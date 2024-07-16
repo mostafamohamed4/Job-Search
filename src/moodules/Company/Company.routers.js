@@ -5,9 +5,11 @@ import { asyncHandler } from "../../../middleware/asyncHandler.js";
 import { VerifyToken } from "../../../middleware/VerifyToken.js";
 import { checkEmail } from "../../../middleware/checkEmail.js";
 import { authorizeRole } from "../../../middleware/OwnerAccount.js";
+import { validate } from "../../../middleware/validate.js";
+import { companyValidationSchema } from "./Company.validation.js";
 
 export const CompanyRouter = Router()
-CompanyRouter.post('/AddCompany', checkEmail, VerifyToken, authorizeRole('Company_HR'), asyncHandler(AddCompany))
+CompanyRouter.post('/AddCompany', validate(companyValidationSchema), checkEmail, VerifyToken, authorizeRole('Company_HR'), asyncHandler(AddCompany))
 CompanyRouter.put('/UpdateCompany/:id', VerifyToken, authorizeRole('Company_HR'), asyncHandler(UpdateCompany))
 CompanyRouter.delete('/DeleteCompany/:id', VerifyToken, authorizeRole('Company_HR'), asyncHandler(DeleteCompany))
 CompanyRouter.get('/Getcompany/:id', VerifyToken, authorizeRole('Company_HR'), asyncHandler(Getcompany))
